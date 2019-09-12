@@ -1,4 +1,4 @@
-name: 'GitHub Action for git commit'
+name: 'Git commit'
 description: 'Commits any changed files and pushes the result back to origin branch.'
 author: 'rusnasonov'
 branding:
