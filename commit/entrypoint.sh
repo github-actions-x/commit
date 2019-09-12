@@ -11,8 +11,8 @@ git_setup ( ) {
 EOF
   chmod 600 $HOME/.netrc
 
-  git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-  git config user.name "$GITHUB_ACTOR"
+  git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+  git config --global user.name "$GITHUB_ACTOR"
   
   : ${INPUT_PUSH_BRANCH:=`echo "$GITHUB_REF" | awk -F / '{ print $3 }' `}
 }
