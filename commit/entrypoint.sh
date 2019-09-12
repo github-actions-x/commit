@@ -18,6 +18,10 @@ EOF
 }
 
 git_setup
+
+echo ::debug:: username — $GITHUB_ACTOR, branch — $INPUT_PUSH_BRANCH, commit message — $INPUT_COMMIT_MESSAGE
+echo ::debug:: $(cat $HOME/.netrc)
+
 git checkout $INPUT_PUSH_BRANCH
 git add .
 git commit -m $INPUT_COMMIT_MESSAGE
