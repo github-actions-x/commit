@@ -1,0 +1,17 @@
+name: 'GitHub Action for git commit'
+description: 'Commits any changed files and pushes the result back to origin branch.'
+author: 'rusnasonov'
+branding:
+  icon: 'git-commit'
+  color: 'green'
+inputs: 
+  push_branch:
+    description: 'Override branch to push to'
+    requried: false
+  commit_message:
+    description: 'Specify commit message'
+    requried: false
+    default: 'autocommit'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
