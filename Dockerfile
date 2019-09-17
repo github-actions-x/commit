@@ -13,6 +13,6 @@ COPY LICENSE README.md /
 
 RUN apk --update --no-cache add git && pip install plumbum
 
-COPY "entrypoint.sh" "/entrypoint.sh"
+COPY "entrypoint.py" "/entrypoint.py"
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.py"]
