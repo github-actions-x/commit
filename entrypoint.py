@@ -4,7 +4,7 @@ from plumbum import local
 import os
 
 def debug(message: str):
-    print(f'debug::{message}')
+    print(f'##[debug]{message}')
 
 
 def run():
@@ -35,8 +35,9 @@ def run():
     if force_add == 'true':
         add_args.append('-f')
     add_args.append('.')
+    debug(git(['checkout', '-b', branch]))
     debug(git(add_args))
-    debug(git(['commit', '-m', commit_message]))
+    debug(git(['commit', '-m', commit_message], retcode=1))
     debug(git(['push', '--follow-tags', '--set-upstream', 'origin', branch]))
 
 if __name__ == '__main__':
