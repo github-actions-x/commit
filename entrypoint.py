@@ -37,7 +37,7 @@ def run():
     add_args.append('.')
     debug(git(['checkout', '-b', branch]))
     debug(git(add_args))
-    debug(git(['commit', '-m', commit_message], retcode=1))
+    debug(git(['commit', '-m', commit_message], retcode=None))
     debug(git(['push', '--follow-tags', '--set-upstream', 'origin', branch]))
 
 if __name__ == '__main__':
