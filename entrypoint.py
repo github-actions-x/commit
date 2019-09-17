@@ -25,9 +25,9 @@ def run():
         )
     chmod = local['chmod']
     git = local['git']
-    chmod(['600', netrc_path])
-    git(['config', '--global', 'user.email', f'{github_actor}@users.noreply.github.com'])
-    git(['config', '--global', 'user.name', f'{github_actor}'])
+    debug(chmod(['600', netrc_path]))
+    debug(git(['config', '--global', 'user.email', f'{github_actor}@users.noreply.github.com']))
+    debug(git(['config', '--global', 'user.name', f'{github_actor}']))
     debug(f'username:{github_actor}, branch:{branch}, commit message:{commit_message}')
     with open(netrc_path) as f:
         debug(f.read())
@@ -35,9 +35,9 @@ def run():
     if force_add == 'true':
         add_args.append('-f')
     add_args.append('.')
-    git(add_args)
-    git(['commit', '-m', commit_message])
-    git(['push', '--follow-tags', '--set-upstream', 'origin', branch])
+    debug(git(add_args))
+    debug(git(['commit', '-m', commit_message]))
+    debug(git(['push', '--follow-tags', '--set-upstream', 'origin', branch]))
 
 if __name__ == '__main__':
     run()
