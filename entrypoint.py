@@ -4,7 +4,7 @@ from plumbum import local
 import os
 
 def debug(message: str):
-    print('debug::{message}')
+    print(f'debug::{message}')
 
 
 def run():
