@@ -23,6 +23,14 @@ echo ::debug:: username — $GITHUB_ACTOR, branch — $INPUT_PUSH_BRANCH, commit
 echo ::debug:: $(cat $HOME/.netrc)
 
 git checkout $INPUT_PUSH_BRANCH
-git add .
+
+ADD_ARGS = ''
+if [[ $INPUT_FORCE_ADD = 'true' ]]
+then
+    ADD_ARGS = '-f'
+fi
+git add $ADD_ARGS .
+
 git commit -m $INPUT_COMMIT_MESSAGE
+
 git push --follow-tags --set-upstream origin $INPUT_PUSH_BRANCH

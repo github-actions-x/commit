@@ -15,6 +15,10 @@ inputs:
     description: 'Specify commit message'
     requried: false
     default: 'autocommit'
+  force-add:
+    description: 'Force add files, useful for adding ignored files.'
+    requried: false
+    default: 'false'
 runs:
   using: 'docker'
   image: 'Dockerfile'
