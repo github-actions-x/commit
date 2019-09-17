@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM python:3.7-alpine
 
 LABEL version="1.0.0"
 LABEL repository="https://github.com/github-actions-x/commit"
@@ -11,7 +11,7 @@ LABEL com.github.actions.icon="git-commit"
 LABEL com.github.actions.color="green"
 COPY LICENSE README.md /
 
-RUN apk --update --no-cache add git
+RUN apk --update --no-cache add git && pip install plumbum
 
 COPY "entrypoint.sh" "/entrypoint.sh"
 
