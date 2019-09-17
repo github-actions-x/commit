@@ -12,7 +12,7 @@ def run():
     github_actor = local.env.get('GITHUB_ACTOR')
     github_token = local.env.get('INPUT_GITHUB_TOKEN')
     commit_message = local.env.get('INPUT_COMMIT_MESSAGE')
-    force_add = local.env.get('INPUT_FORCE_ADD')
+    force_add = local.env.get('INPUT_FORCE-ADD')
     branch = local.env.get('INPUT_PUSH_BRANCH') or local.env.get('GITHUB_REF').split('/')[2]
     with open(netrc_path, 'w') as f:
         f.write(
