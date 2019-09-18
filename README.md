@@ -23,10 +23,10 @@ jobs:
     - name: build
       uses: github-actions-x/hugo@master
     - name: push
-      uses: github-actions-x/commit@master
+      uses: github-actions-x/commit@v2
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        push_branch: 'master'
-        commit_message: 'publish'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        push-branch: 'master'
+        commit-message: 'publish'
         force-add: 'true'
 ```
