@@ -9,7 +9,7 @@ def debug(message: str):
 
 def run():
     netrc_path = os.path.join(local.env.get('HOME', ''), '.netrc')
-    github_actor = local.env.get('GITHUB-ACTOR')
+    github_actor = local.env.get('GITHUB_ACTOR')
     github_token = local.env.get('INPUT_GITHUB-TOKEN')
     commit_message = local.env.get('INPUT_COMMIT-MESSAGE')
     force_add = local.env.get('INPUT_FORCE-ADD')
