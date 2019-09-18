@@ -9,11 +9,11 @@ def debug(message: str):
 
 def run():
     netrc_path = os.path.join(local.env.get('HOME', ''), '.netrc')
-    github_actor = local.env.get('GITHUB_ACTOR')
-    github_token = local.env.get('INPUT_GITHUB_TOKEN')
-    commit_message = local.env.get('INPUT_COMMIT_MESSAGE')
+    github_actor = local.env.get('GITHUB-ACTOR')
+    github_token = local.env.get('INPUT_GITHUB-TOKEN')
+    commit_message = local.env.get('INPUT_COMMIT-MESSAGE')
     force_add = local.env.get('INPUT_FORCE-ADD')
-    branch = local.env.get('INPUT_PUSH_BRANCH') or local.env.get('GITHUB_REF').split('/')[2]
+    branch = local.env.get('INPUT_PUSH-BRANCH') or local.env.get('GITHUB_REF').split('/')[2]
     with open(netrc_path, 'w') as f:
         f.write(
             f'machine github.com\n'
@@ -34,7 +34,7 @@ def run():
     add_args = ['add']
     if force_add == 'true':
         add_args.append('-f')
-    add_args.append('.')
+    add_args.append('-A')
     debug(git(['checkout', '-b', branch]))
     debug(git(add_args))
     debug(git(['commit', '-m', commit_message], retcode=None))

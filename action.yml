@@ -5,13 +5,13 @@ branding:
   icon: 'git-commit'
   color: 'green'
 inputs: 
-  github_token:
+  github-token:
     description: 'Github Token with commit access'
     requried: true
-  push_branch:
+  push-branch:
     description: 'Override branch to push to'
     requried: false
-  commit_message:
+  commit-message:
     description: 'Specify commit message'
     requried: false
     default: 'autocommit'
