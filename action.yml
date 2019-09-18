@@ -1,4 +1,4 @@
-name: 'Git commit and push'
+name: 'Git Commit and Push'
 description: 'Commits any changed files and pushes the result back to origin branch.'
 author: 'rusnasonov'
 branding:
