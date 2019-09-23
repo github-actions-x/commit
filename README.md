@@ -23,7 +23,7 @@ jobs:
     - name: build
       uses: github-actions-x/hugo@master
     - name: push
-      uses: github-actions-x/commit@v2
+      uses: github-actions-x/commit@v2.0
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         push-branch: 'master'
