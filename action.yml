@@ -19,6 +19,10 @@ inputs:
     description: 'Force add files, useful for adding ignored files.'
     requried: false
     default: 'false'
+  rebase:
+    description: 'Pull and rebase before commiting. Useful when using commit inside matrix.'
+    requried: false
+    default: 'false'
 runs:
   using: 'docker'
   image: 'Dockerfile'

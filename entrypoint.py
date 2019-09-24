@@ -14,6 +14,7 @@ def run():
     commit_message = local.env.get('INPUT_COMMIT-MESSAGE')
     force_add = local.env.get('INPUT_FORCE-ADD')
     branch = local.env.get('INPUT_PUSH-BRANCH') or local.env.get('GITHUB_REF').split('/')[2]
+    rebase = local.env.get('INPUT_REBASE', 'false')
     with open(netrc_path, 'w') as f:
         f.write(
             f'machine github.com\n'
@@ -35,6 +36,8 @@ def run():
     if force_add == 'true':
         add_args.append('-f')
     add_args.append('-A')
+    if rebase == 'true':
+        debug(git(['pull', '--rebase', '--autostash', 'origin', branch]))
     debug(git(['checkout', '-b', branch]))
     debug(git(add_args))
     debug(git(['commit', '-m', commit_message], retcode=None))
