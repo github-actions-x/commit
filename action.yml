@@ -23,6 +23,10 @@ inputs:
     description: 'Pull and rebase before commiting. Useful when using commit inside matrix.'
     requried: false
     default: 'false'
+  files:
+    description: 'Specific files to add.'
+    requried: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
