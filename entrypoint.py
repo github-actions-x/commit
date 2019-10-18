@@ -15,6 +15,7 @@ def run():
     force_add = local.env.get('INPUT_FORCE-ADD')
     branch = local.env.get('INPUT_PUSH-BRANCH') or local.env.get('GITHUB_REF').split('/')[2]
     rebase = local.env.get('INPUT_REBASE', 'false')
+    files = local.env.get('INPUT_FILES', '')
     with open(netrc_path, 'w') as f:
         f.write(
             f'machine github.com\n'
@@ -36,6 +37,8 @@ def run():
     if force_add == 'true':
         add_args.append('-f')
     add_args.append('-A')
+    if files:
+        add_args.append(files)
     if rebase == 'true':
         debug(git(['pull', '--rebase', '--autostash', 'origin', branch]))
     debug(git(['checkout', '-b', branch]))
