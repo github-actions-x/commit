@@ -30,6 +30,9 @@ jobs:
         commit-message: 'publish'
         force-add: 'true'
         files: a.txt b.txt c.txt dirA/ dirB/ dirC/a.txt
+        name: commiter name
+        email: my.github@email.com 
+
 ```
 
 If you use `commit` inside [matrix](https://help.github.com/en/articles/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix), set variable `rebase='true'` for pulling and rebasing changes.
