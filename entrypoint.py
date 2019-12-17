@@ -16,6 +16,8 @@ def run():
     branch = local.env.get('INPUT_PUSH-BRANCH') or local.env.get('GITHUB_REF').split('/')[2]
     rebase = local.env.get('INPUT_REBASE', 'false')
     files = local.env.get('INPUT_FILES', '')
+    email = local.env.get('INPUT_EMAIL', f'{github_actor}@users.noreply.github.com')
+    name = local.env.get('INPUT_NAME', github_actor)
     with open(netrc_path, 'w') as f:
         f.write(
             f'machine github.com\n'
@@ -28,8 +30,8 @@ def run():
     chmod = local['chmod']
     git = local['git']
     debug(chmod(['600', netrc_path]))
-    debug(git(['config', '--global', 'user.email', f'{github_actor}@users.noreply.github.com']))
-    debug(git(['config', '--global', 'user.name', f'{github_actor}']))
+    debug(git(['config', '--global', 'user.email', email]))
+    debug(git(['config', '--global', 'user.name', name]))
     debug(f'username:{github_actor}, branch:{branch}, commit message:{commit_message}')
     with open(netrc_path) as f:
         debug(f.read())

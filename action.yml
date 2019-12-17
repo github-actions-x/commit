@@ -27,6 +27,14 @@ inputs:
     description: 'Specific files to add.'
     requried: false
     default: ''
+  email:
+    description: 'Committer email. Default is ${name}@users.noreply.github.com'
+    requried: false
+    default: ''
+  name:
+    description: 'Committer name. Default is name of the person or app that initiated the workflow.'
+    requried: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
