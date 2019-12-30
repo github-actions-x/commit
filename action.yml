@@ -7,33 +7,33 @@ branding:
 inputs: 
   github-token:
     description: 'Github Token with commit access'
-    requried: true
+    required: true
   push-branch:
     description: 'Override branch to push to'
-    requried: false
+    required: false
   commit-message:
     description: 'Specify commit message'
-    requried: false
+    required: false
     default: 'autocommit'
   force-add:
     description: 'Force add files, useful for adding ignored files.'
-    requried: false
+    required: false
     default: 'false'
   rebase:
     description: 'Pull and rebase before commiting. Useful when using commit inside matrix.'
-    requried: false
+    required: false
     default: 'false'
   files:
     description: 'Specific files to add.'
-    requried: false
+    required: false
     default: ''
   email:
     description: 'Committer email. Default is ${name}@users.noreply.github.com'
-    requried: false
+    required: false
     default: ''
   name:
     description: 'Committer name. Default is name of the person or app that initiated the workflow.'
-    requried: false
+    required: false
     default: ''
 runs:
   using: 'docker'
