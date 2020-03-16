@@ -11,7 +11,7 @@ LABEL com.github.actions.icon="git-commit"
 LABEL com.github.actions.color="green"
 COPY LICENSE README.md /
 
-RUN apk --update --no-cache add git && pip install plumbum
+RUN apk --update --no-cache add git git-lfs && pip install plumbum
 
 COPY "entrypoint.py" "/entrypoint.py"
 
