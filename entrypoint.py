@@ -40,7 +40,7 @@ def run():
         add_args.append('-f')
     add_args.append('-A')
     if files:
-        add_args.append(files)
+        add_args.append(files.strip("'"))
     if rebase == 'true':
         debug(git(['pull', '--rebase', '--autostash', 'origin', branch]))
     debug(git(['checkout', '-B', branch]))
