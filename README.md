@@ -23,7 +23,7 @@ jobs:
     - name: build
       uses: github-actions-x/hugo@master
     - name: push
-      uses: github-actions-x/commit@v2.5
+      uses: github-actions-x/commit@v2.6
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         push-branch: 'master'
@@ -63,7 +63,7 @@ jobs:
         run: |
           npm run generate-some-files-for-specific-node-version
       - name: push
-        uses: github-actions-x/commit@v2.5
+        uses: github-actions-x/commit@v2.6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: master
