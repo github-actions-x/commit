@@ -13,7 +13,7 @@ def run():
     github_token = local.env.get('INPUT_GITHUB-TOKEN')
     commit_message = local.env.get('INPUT_COMMIT-MESSAGE')
     force_add = local.env.get('INPUT_FORCE-ADD')
-    branch = local.env.get('INPUT_PUSH-BRANCH') or local.env.get('GITHUB_REF').split('/')[2]
+    branch = local.env.get('INPUT_PUSH-BRANCH') or "/".join(local.env.get('GITHUB_REF').split('/')[2:])
     rebase = local.env.get('INPUT_REBASE', 'false')
     files = local.env.get('INPUT_FILES', '')
     email = local.env.get('INPUT_EMAIL', f'{github_actor}@users.noreply.github.com')
