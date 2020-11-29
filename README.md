@@ -68,5 +68,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: master
           commit-message: '${{ matrix.node-version }} adds auto-generated benchmarks and bar graph'
-          rebase: 'true' # pull abd rebase before commit
+          rebase: 'true' # pull and rebase before commit
 ```
