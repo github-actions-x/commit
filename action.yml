@@ -4,7 +4,7 @@ author: 'rusnasonov'
 branding:
   icon: 'git-commit'
   color: 'green'
-inputs: 
+inputs:
   github-token:
     description: 'Github Token with commit access'
     required: true
@@ -17,6 +17,10 @@ inputs:
     default: 'autocommit'
   force-add:
     description: 'Force add files, useful for adding ignored files.'
+    required: false
+    default: 'false'
+  force-push:
+    description: 'Force push.'
     required: false
     default: 'false'
   rebase:
