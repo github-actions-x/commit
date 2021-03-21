@@ -13,6 +13,7 @@ def run():
     github_token = local.env.get('INPUT_GITHUB-TOKEN')
     commit_message = local.env.get('INPUT_COMMIT-MESSAGE')
     force_add = local.env.get('INPUT_FORCE-ADD')
+    force_push = local.env.get('INPUT_FORCE-PUSH')
     branch = local.env.get('INPUT_PUSH-BRANCH') or "/".join(local.env.get('GITHUB_REF').split('/')[2:])
     rebase = local.env.get('INPUT_REBASE', 'false')
     files = local.env.get('INPUT_FILES', '')
@@ -44,10 +45,13 @@ def run():
         add_args.extend(files.strip("'").split())
     if rebase == 'true':
         debug(git(['pull', '--rebase', '--autostash', 'origin', branch]))
+    push_args = ['push', '--follow-tags', '--set-upstream', 'origin', branch]
+    if force_push == 'true':
+        push_args.append('--force')
     debug(git(['checkout', '-B', branch]))
     debug(git(add_args))
     debug(git(['commit', '-m', commit_message], retcode=None))
-    debug(git(['push', '--follow-tags', '--set-upstream', 'origin', branch]))
+    debug(git(push_args))
 
 if __name__ == '__main__':
     run()
