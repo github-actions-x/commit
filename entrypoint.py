@@ -15,11 +15,11 @@ def run():
     force_add = local.env.get('INPUT_FORCE-ADD')
     force_push = local.env.get('INPUT_FORCE-PUSH')
     branch = local.env.get('INPUT_PUSH-BRANCH') or "/".join(local.env.get('GITHUB_REF').split('/')[2:])
+    remote = local.env.get('INPUT_PUSH-REMOTE', 'origin')
     rebase = local.env.get('INPUT_REBASE', 'false')
     files = local.env.get('INPUT_FILES', '')
     email = local.env.get('INPUT_EMAIL', f'{github_actor}@users.noreply.github.com')
     name = local.env.get('INPUT_NAME', github_actor)
-    remote = local.env.get('INPUT_REMOTE', 'origin')
     with open(netrc_path, 'w') as f:
         f.write(
             f'machine github.com\n'
