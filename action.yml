@@ -11,6 +11,9 @@ inputs:
   push-branch:
     description: 'Override branch to push to'
     required: false
+  push-remote:
+    description: 'Override remote to push to'
+    required: false
   commit-message:
     description: 'Specify commit message'
     required: false
