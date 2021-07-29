@@ -19,6 +19,7 @@ def run():
     files = local.env.get('INPUT_FILES', '')
     email = local.env.get('INPUT_EMAIL', f'{github_actor}@users.noreply.github.com')
     name = local.env.get('INPUT_NAME', github_actor)
+    remote = local.env.get('INPUT_REMOTE', 'origin')
     with open(netrc_path, 'w') as f:
         f.write(
             f'machine github.com\n'
@@ -44,8 +45,8 @@ def run():
         debug(f"Files: {files}")
         add_args.extend(files.strip("'").split())
     if rebase == 'true':
-        debug(git(['pull', '--rebase', '--autostash', 'origin', branch]))
-    push_args = ['push', '--follow-tags', '--set-upstream', 'origin', branch]
+        debug(git(['pull', '--rebase', '--autostash', remote, branch]))
+    push_args = ['push', '--follow-tags', '--set-upstream', remote, branch]
     if force_push == 'true':
         push_args.append('--force')
     debug(git(['checkout', '-B', branch]))
