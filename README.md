@@ -4,16 +4,16 @@ Git commit and push
 
 ### Options
 
-github-token: *Required.* Github Token with commit access. If pushing to the same repo the action is running on, please use `${{ secrets.GITHUB_TOKEN }}`. If for another repo, create a personal private token, add it to secrets then use it here.
-push-branch: Override branch to push to, defaults to the same branch the action is currently running on.
-push-remote: Override remote to push to, defaults to the same repo the action is currently running on.  Must be in GIT URL format, example below.
-commit-message: Specify commit message, defaults to `autocommit`.
-force-add: Force add files, useful for adding ignored files. Defaults to `false`.
-force-push: Force git push, defaults to `false`.
-rebase: Pull and rebase before commiting. Useful when using commit inside matrix. Defaults to `false`
-files: Specific files to add. Uses the same format as `git add`. Defaults to all files.
-email: Committer email. Default is `${name}@users.noreply.github.com`
-name: Committer name. Default is name of the person or app that initiated the workflow.
+* **github-token**: *Required*. Github Token with commit access. If pushing to the same repo the action is running on, please use `${{ secrets.GITHUB_TOKEN }}`. If for another repo, create a personal private token, add it to secrets then use it here.
+* **push-branch**: Override branch to push to, defaults to the same branch the action is currently running on.
+* **push-remote**: Override remote to push to, defaults to the same repo the action is currently running on.  Must be in GIT URL format, example below.
+* **commit-message**: Specify commit message, defaults to `autocommit`.
+* **force-add**: Force add files, useful for adding ignored files. Defaults to `false`.
+* **force-push**: Force git push, defaults to `false`.
+* **rebase**: Pull and rebase before commiting. Useful when using commit inside matrix. Defaults to `false`
+* **files**: Specific files to add. Uses the same format as `git add`. Defaults to all files.
+* **email**: Committer email. Default is `${name}@users.noreply.github.com`
+* **name**: Committer name. Default is name of the person or app that initiated the workflow.
 
 
 ### Example
