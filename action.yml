@@ -15,18 +15,22 @@ inputs:
     description: 'Specify commit message'
     required: false
     default: 'autocommit'
+  commit-amend:
+    description: 'Amend a previous commit.'
+    required: false
+    default: false
   force-add:
     description: 'Force add files, useful for adding ignored files.'
     required: false
-    default: 'false'
+    default: false
   force-push:
     description: 'Force push.'
     required: false
-    default: 'false'
+    default: false
   rebase:
     description: 'Pull and rebase before commiting. Useful when using commit inside matrix.'
     required: false
-    default: 'false'
+    default: false
   files:
     description: 'Specific files to add.'
     required: false
