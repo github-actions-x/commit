@@ -28,7 +28,8 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         push-branch: 'master'
         commit-message: 'publish'
-        force-add: 'true'
+        commit-amend: false
+        force-add: true
         files: a.txt b.txt c.txt dirA/ dirB/ dirC/a.txt
         name: commiter name
         email: my.github@email.com 

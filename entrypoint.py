@@ -12,6 +12,7 @@ def run():
     github_actor = local.env.get('GITHUB_ACTOR')
     github_token = local.env.get('INPUT_GITHUB-TOKEN')
     commit_message = local.env.get('INPUT_COMMIT-MESSAGE')
+    commit_amend = local.env.get('INPUT_COMMIT-AMEND')
     force_add = local.env.get('INPUT_FORCE-ADD')
     force_push = local.env.get('INPUT_FORCE-PUSH')
     branch = local.env.get('INPUT_PUSH-BRANCH') or "/".join(local.env.get('GITHUB_REF').split('/')[2:])
@@ -51,7 +52,15 @@ def run():
         push_args.append('--force')
     debug(git(['checkout', '-B', branch]))
     debug(git(add_args))
-    debug(git(['commit', '-m', commit_message], retcode=None))
+    commit_args = ['commit']
+    if commit_message:
+        commit_args.append('-m')
+        commit_args.append(commit_message)
+    else:
+        commit_args.append('--no-edit')
+    if commit_amend:
+        commit_args.append('--amend')
+    debug(git(commit_args, retcode=None))
     debug(git(push_args))
 
 if __name__ == '__main__':
